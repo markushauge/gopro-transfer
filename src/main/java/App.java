@@ -17,7 +17,8 @@ public class App {
             Files.createDirectory(directory);
         }
 
-        // Build Retrofit and create a GoProService
+        // Build Retrofit and create a GoProService that
+        // handles requests to the GoPro's built-in HTTP server
         GoProService goPro = new Retrofit.Builder()
             .baseUrl("http://10.5.5.9:8080")
             .addConverterFactory(GsonConverterFactory.create())
