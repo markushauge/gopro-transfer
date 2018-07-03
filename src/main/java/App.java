@@ -9,16 +9,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        // Set the output directory and
-        // create it if it doesn't exist
+        // Set and create the output directory
         Path directory = Paths.get("./files");
 
         if (!Files.exists(directory)) {
             Files.createDirectory(directory);
         }
 
-        // Build Retrofit and create a GoProService that
-        // handles requests to the GoPro's built-in HTTP server
+        // Create a GoProService that handles requests
+        // to a GoPro device's built-in HTTP server
         GoProService goPro = new Retrofit.Builder()
             .baseUrl("http://10.5.5.9:8080")
             .addConverterFactory(GsonConverterFactory.create())
@@ -32,7 +31,7 @@ public class App {
             .execute()
             .body();
 
-        // Download all the files that aren't already
+        // Download all the files that are below 1 GB
         for (Media media : mediaList.getMedia()) {
             for (MediaFile file : media.getFiles()) {
                 Path target = directory.resolve(file.getName());
