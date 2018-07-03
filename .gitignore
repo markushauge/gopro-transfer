@@ -1,0 +1,8 @@
+# Java
+.classpath
+.project
+.gradle
+.settings
+build/
+bin/
+files/
