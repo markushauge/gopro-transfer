@@ -8,7 +8,7 @@ public class MediaFile {
     private long lastModified;
 
     @SerializedName("ls")
-    private long unkown;
+    private long unknown;
 
     @SerializedName("s")
     private long size;
